@@ -1,11 +1,21 @@
 public class Power {
     public static void main(String[] args) {
+        long startTime, endTime;
 
-        int non_recursive = pow_non_recursive(2, 20);
-        int recursive = pow_recursive(2, 20);
-        
-        System.out.println(non_recursive);
-        System.out.println(recursive);
+        startTime = System.nanoTime();
+        int non_recursive = pow_non_recursive(2, 35);
+        endTime = System.nanoTime();
+        long nonRecursiveTime = endTime - startTime;
+
+        startTime = System.nanoTime();
+        int recursive = pow_recursive(2, 35);
+        endTime = System.nanoTime();
+        long recursiveTime = endTime - startTime;
+
+        System.out.println("Non-recursive result: " + non_recursive);
+        System.out.println("Recursive result: " + recursive);
+        System.out.println("Non-recursive time: " + nonRecursiveTime + " ns");
+        System.out.println("Recursive time: " + recursiveTime + " ns");
     }
 
     public static int pow_non_recursive(int x, int n) {
